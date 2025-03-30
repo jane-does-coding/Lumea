@@ -1,5 +1,6 @@
 import TwoColumnSection from "@/components/TwoColumnSection";
 import HomePage from "../components/HomePage";
+import { MacbookScrollComponent } from "@/components/MacbookScrollComponent";
 
 export default function Home() {
 	const carbonFootprintItems = [
@@ -48,6 +49,7 @@ export default function Home() {
 			{/* 			<div className="h-[100vh] w-full bg-red-700"></div>
 			 */}{" "}
 			<TwoColumnSection title="CarBOn FoOTprINt" items={carbonFootprintItems} />
+			<MacbookScrollComponent />
 		</div>
 	);
 }
