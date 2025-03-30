@@ -82,9 +82,8 @@ export default function HomePage() {
 	useEffect(() => setIsClient(true), []);
 	if (!isClient) return null;
 
-	// Global average carbon footprint is about 4.8 tons per person per year
 	const globalAverage = 4.8;
-	// US average is about 16 tons
+
 	const usAverage = 16;
 
 	const calculateFootprint = () => {
@@ -100,7 +99,7 @@ export default function HomePage() {
 			return;
 		}
 
-		const transportImpact = (transport.footprint * distance * 365) / 1000;
+		const transportImpact = (transport.footprint * distance) / 1000;
 		const totalFootprint =
 			transportImpact +
 			diet.footprint +
@@ -120,12 +119,10 @@ export default function HomePage() {
 		});
 	};
 
-	// Fixed percentage calculation
-	const getComparisonPercentage = (userValue: number, averageValue: number) => {
-		return Math.min(Math.round((userValue / averageValue) * 100), 999); // Cap at 999%
-	};
+	/* const getComparisonPercentage = (userValue: number, averageValue: number) => {
+		return Math.min(Math.round((userValue / averageValue) * 100), 999);
+	}; */
 
-	// Fixed comparison calculation
 	const getComparison = (userValue: number, averageValue: number) => {
 		const difference = userValue - averageValue;
 		const percentage = Math.abs(Math.round((difference / averageValue) * 100));
@@ -140,8 +137,8 @@ export default function HomePage() {
 	};
 
 	return (
-		<div className="w-[85vw] xl:w-[80vw] mx-auto py-[12vh]">
-			<motion.h1
+		<div className="w-[85vw] xl:w-[85vw] mx-auto py-[8vh]">
+			{/* 	<motion.h1
 				className="dirtyline36 text-[3rem] xl:text-[5rem] 2xl:text-[7rem] mx-auto text-center text-black mb-[4rem]"
 				variants={fadeInVariants}
 				initial="hidden"
@@ -150,11 +147,31 @@ export default function HomePage() {
 				transition={{ duration: 0.8 }}
 			>
 				Carbon Footprint Tracker
-			</motion.h1>
+			</motion.h1> */}
+			<h1
+				className=" text-[7rem] xl:text-[12rem] 2xl:text-[16rem] leading-none 
+				text-transparent bg-clip-text bg-center bg-cover text-center w-full font-extrabold exo tracking-[-0.25rem]"
+				style={{
+					backgroundImage: "url('/bg2.jpg')",
+					backgroundPosition: "0% 70%",
+				}}
+			>
+				Carbon
+			</h1>
+			<motion.h2
+				variants={fadeInVariants}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true }}
+				transition={{ duration: 0.8, delay: 0.1 }}
+				className="text-center text-[3rem] tracking-[-0.1rem] mb-12"
+			>
+				Footprint Calculator
+			</motion.h2>
 
-			<div className="flex flex-col xl:flex-row gap-[5vw]">
+			<div className="flex flex-col xl:flex-row gap-[3vw]">
 				<motion.div
-					className="xl:w-[50%] space-y-6"
+					className="xl:w-[45%] space-y-6"
 					variants={fadeInVariants}
 					initial="hidden"
 					whileInView="visible"
@@ -162,7 +179,7 @@ export default function HomePage() {
 					transition={{ duration: 0.8, delay: 0.2 }}
 				>
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							How do you commute?
 						</label>
 						<Select<Option>
@@ -176,7 +193,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -188,19 +205,19 @@ export default function HomePage() {
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							Daily commute distance (km)
 						</label>
 						<input
 							type="number"
 							value={distance}
-							onChange={(e) => setDistance(parseFloat(e.target.value) || 0)}
-							className="w-full p-4 border-2 border-black rounded-full exo text-[1.1rem]"
+							onChange={(e) => setDistance(parseFloat(e.target.value))}
+							className="w-full p-4 border-2 border-black rounded-full exo text-[1.1rem] px-[1.5rem]"
 						/>
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							What's your diet?
 						</label>
 						<Select<Option>
@@ -214,7 +231,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -226,7 +243,7 @@ export default function HomePage() {
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							Your housing type?
 						</label>
 						<Select<Option>
@@ -240,7 +257,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -252,7 +269,7 @@ export default function HomePage() {
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							Home energy source?
 						</label>
 						<Select<Option>
@@ -266,7 +283,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -278,7 +295,7 @@ export default function HomePage() {
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							Flight habits?
 						</label>
 						<Select<Option>
@@ -292,7 +309,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -304,7 +321,7 @@ export default function HomePage() {
 					</div>
 
 					<div>
-						<label className="block exo text-[1.5rem] xl:text-[1.75rem] 2xl:text-[2rem] tracking-[-1px] text-neutral-900 mb-2">
+						<label className="block exo text-[1.25rem] xl:text-[1.5rem] 2xl:text-[1.65rem] tracking-[-1px] text-neutral-900 mb-2">
 							Shopping habits?
 						</label>
 						<Select<Option>
@@ -318,7 +335,7 @@ export default function HomePage() {
 									...base,
 									border: "2px solid #000",
 									borderRadius: "9999px",
-									padding: "0.5rem 1rem",
+									padding: "0.5rem 1.5rem",
 									fontSize: "1.1rem",
 								}),
 								option: (base) => ({
@@ -331,21 +348,21 @@ export default function HomePage() {
 
 					<button
 						onClick={calculateFootprint}
-						className="text-neutral-50 lowercase bg-neutral-900 mt-[2rem] px-[2rem] py-[0.75rem] text-[1.2rem] xl:text-[1.5rem] border-2 dirtyline36 transition-all font-light relative hover:bg-neutral-800/90 rounded-[10rem] w-full"
+						className="text-neutral-50 lowercase bg-neutral-900 mt-[1rem] px-[2rem] py-[0.75rem] text-[1.2rem] xl:text-[1.5rem] border-2 dirtyline36 transition-all font-light relative hover:bg-neutral-800/90 rounded-[10rem] w-full"
 					>
 						Calculate Footprint
 					</button>
 				</motion.div>
 
-				{result && (
+				{result ? (
 					<motion.div
-						className="xl:w-[50%] bg-neutral-100 p-8 rounded-xl border-2 border-neutral-900"
+						className="xl:w-[55%] bg-neutral-100 p-8 rounded-xl border-2 border-neutral-900"
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						transition={{ duration: 0.5 }}
 					>
 						<h2 className="dirtyline36 text-[2rem] xl:text-[3rem] mb-6 text-neutral-900">
-							Your Results
+							YoUR ResULts
 						</h2>
 
 						<div className="space-y-6">
@@ -440,6 +457,17 @@ export default function HomePage() {
 								)}
 							</div>
 						</div>
+					</motion.div>
+				) : (
+					<motion.div
+						className="xl:w-[55%] bg-neutral-100 p-8 rounded-xl border-2 border-neutral-900 hidden md:flex items-center justify-center"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 0.5 }}
+					>
+						<h1 className="text-center text-[2.5rem] w-[75%]">
+							Enter your data to see results
+						</h1>
 					</motion.div>
 				)}
 			</div>

@@ -8,7 +8,7 @@ const fadeInVariants = {
 
 export default function TwoColumnSection({ title, items, circle }: any) {
 	return (
-		<div className="pt-[12vh]">
+		<div className="pt-[12vh] border-t-4 border-sky-300/50">
 			<motion.h1
 				className="dirtyline36 text-[3rem] xl:text-[5rem] 2xl:text-[7rem] mx-auto text-center text-black"
 				variants={fadeInVariants}
@@ -19,7 +19,7 @@ export default function TwoColumnSection({ title, items, circle }: any) {
 			>
 				{title}
 			</motion.h1>
-			<div className="flex w-[80vw] gap-[15vw] mx-auto mt-[1rem] xl:mt-[2rem]">
+			<div className="flex w-[80vw] gap-[15vw] mx-auto mt-[1rem] xl:mt-[2rem] items-start">
 				{items.map((item: any, index: any) => (
 					<motion.div
 						key={index}
@@ -32,7 +32,7 @@ export default function TwoColumnSection({ title, items, circle }: any) {
 					>
 						<img
 							src={item.image}
-							className={` w-[30vw] aspect-[1] object-cover ${
+							className={` w-[30vw] aspect-[1] object-cover border-neutral-300 border-2 ${
 								circle ? "rounded-full" : "rounded-[0.5rem]"
 							}`}
 							alt=""
@@ -43,14 +43,6 @@ export default function TwoColumnSection({ title, items, circle }: any) {
 						<p className="exo text-neutral-800 w-[90%] mx-auto text-[1.15rem] xl:text-[1.4rem] 2xl:text-[1.75rem] my-[0.25rem] xl:my-[0.75rem] 2xl:leading-[2rem] font-light">
 							{item.description}
 						</p>
-						{item.link && (
-							<a
-								href={item.link}
-								className="text-neutral-50 lowercase bg-neutral-900 mt-[1rem] px-[1.5rem] py-[0.45rem] text-[1rem] xl:text-[1.3rem] 2xl:text-[1.5rem] border-2 dirtyline36 transition-all font-light relative hover:bg-neutral-800/90 rounded-[10rem] mb-[2rem]"
-							>
-								{item.linkText}
-							</a>
-						)}
 					</motion.div>
 				))}
 			</div>

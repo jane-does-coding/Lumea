@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌿 Carbon Footprint Calculator
 
-## Getting Started
+> Track, reduce, and breathe cleaner air!
 
-First, run the development server:
+## 📋 Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [✨ Overview](#-overview)
+- [🚀 Features](#-features)
+- [📄 Pages](#-pages)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [🔤 Fonts](#-fonts)
+- [⚙️ Installation](#️-installation)
+- [🎯 Purpose](#-purpose)
+- [🤝 Contributing](#-contributing)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+A modern Next.js application that calculates your carbon footprint based on lifestyle factors like transportation, diet, and energy usage. The calculator provides:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Detailed breakdown of emissions by category
+- Visual comparisons to global and US averages
+- Personalized recommendations for reduction
+- Responsive design with smooth animations
 
-## Learn More
+Built with Next.js for optimal performance and clean UI design principles.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Category        | Details                                                             |
+| --------------- | ------------------------------------------------------------------- |
+| **Calculator**  | Transportation, diet, housing, energy, flights, and shopping inputs |
+| **Results**     | Comparative analysis, actionable recommendations                    |
+| **UI/UX**       | Responsive design, animated transitions, accessible color schemes   |
+| **Performance** | Optimized bundle size, lazy loading, efficient state management     |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 Pages
 
-## Deploy on Vercel
+- 1. Home/Landing Page (`/`)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 2. Calculations Page (`/calculate`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Tech Stack
+
+[![Technologies](https://skillicons.dev/icons?i=css,ts,tailwind,nextjs,react,git,github)](https://skillicons.dev)
+
+## 🔤 Fonts
+
+| Font         | Type       | Implementation                      |
+| ------------ | ---------- | ----------------------------------- |
+| Exo 2        | Sans-serif | `@import` from Google Fonts         |
+| Dirtyline 36 | Display    | Local WOFF2 file in `/public/fonts` |
+
+## ⚙️ Installation
+
+Follow these steps to set up and run the project on your local machine:
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/jane-does-coding/lumea
+   ```
+
+2. **Install Dependencies**
+
+   ```bash
+    npm i
+   ```
+
+3. **Run Locally**
+   ```bash
+    npm run dev
+   ```
+
+## 🎯 Purpose
+
+Environmental Impact:
+Democratizes access to complex carbon calculations through an intuitive interface.
+
+Behavioral Change:
+Visual data presentation encourages users to adopt more sustainable lifestyle choices.
+
+## 🤝 Contributing
+
+Fork the repository
+
+Create your feature branch (git checkout -b feature/amazing-feature)
+
+Commit changes (git commit -m 'Add amazing feature')
+
+Push to branch (git push origin feature/amazing-feature)
+
+Open a Pull Request

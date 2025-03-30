@@ -2,22 +2,22 @@ import TwoColumnSection from "@/components/TwoColumnSection";
 import HomePage from "../components/HomePage";
 
 export default function Home() {
-	const globalEcoStatsItems = [
+	const carbonFootprintItems = [
 		{
-			image: "/bg2.jpg",
-			heading: "Real-Time Eco Data",
+			image: "/info1.jpg",
+			heading: "Track Your Carbon Footprint",
 			description:
-				"Monitor live environmental metrics like air quality, deforestation rates, and carbon emissions.",
-			link: "/dashboard",
-			linkText: "Explore Data",
+				"Use our calculator to estimate your carbon emissions from daily activities like commuting and diet choices.",
+			link: "/calculator",
+			linkText: "Calculate Now",
 		},
 		{
-			image: "/bg2.jpg",
-			heading: "Engaging Mini-Games",
+			image: "/info2.jpg",
+			heading: "Reduce Your Impact",
 			description:
-				"Play games that teach you about recycling, renewable energy, and wildlife conservation.",
-			link: "/games",
-			linkText: "Play Now",
+				"Discover practical tips and sustainable habits to lower your carbon footprint and live a greener life.",
+			link: "/tips",
+			linkText: "Learn More",
 		},
 	];
 	return (
@@ -37,7 +37,7 @@ export default function Home() {
 				</h1> */}
 				<h1
 					className="absolute text-[16rem] xl:text-[22rem] 2xl:text-[26rem] leading-none 
-				text-transparent bg-clip-text bg-center bg-cover text-center w-full font-extrabold exo tracking-[-0.75rem]"
+				text-transparent bg-clip-text bg-center bg-cover text-center w-full font-extrabold exo tracking-[-0.75rem] saturate-[130%] "
 					style={{
 						backgroundImage: "url('/bg2.jpg')",
 					}}
@@ -47,7 +47,7 @@ export default function Home() {
 			</div>
 			{/* 			<div className="h-[100vh] w-full bg-red-700"></div>
 			 */}{" "}
-			<TwoColumnSection title="GLobAl EcO StATs" items={globalEcoStatsItems} />
+			<TwoColumnSection title="CarBOn FoOTprINt" items={carbonFootprintItems} />
 		</div>
 	);
 }
